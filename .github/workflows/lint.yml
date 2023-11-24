@@ -13,4 +13,5 @@ jobs:
         run: |
           if grep -q "fail" test.txt; then
             echo "Error: File contains the string 'fail'"
+            exit
           fi
