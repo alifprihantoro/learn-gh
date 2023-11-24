@@ -1,0 +1,16 @@
+name: Linting and style checking
+
+on: [pull_request_review]
+
+jobs:
+  luacheck:
+    name: Luacheck
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare
+        run: |
+          if grep -q "fail" test.txt; then
+            echo "Error: File contains the string 'fail'"
+          fi
